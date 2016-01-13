@@ -1,0 +1,93 @@
+#-----------------------------------------------------------------------------------------------------------
+
+NordUSB.name=Nordic USB dongle
+
+NordUSB.build.mcu=cortex-m0
+NordUSB.build.f_cpu=16000000
+NordUSB.build.board=Nordic_USB
+NordUSB.build.core=nRF51
+NordUSB.build.variant=Nordic_USB
+NordUSB.build.device_definitions= -DTARGET_NRF51_DONGLE
+NordUSB.build.ldscript={build.variant.path}/linker_scripts/gcc/memory-32K-no-sd.ld
+
+NordUSB.build.nrf_sdk={runtime.platform.path}/cores/nRF51/nRF51-SDK-9
+NordUSB.build.arduino={runtime.platform.path}/cores/nRF51/arduino
+NordUSB.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
+NordUSB.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
+
+NordUSB.upload.tool=nrfjprog
+NordUSB.upload.protocol=
+NordUSB.upload.maximum_size=131072
+NordUSB.upload.maximum_data_size=32768
+
+#-----------------------------------------------------------------------------------------------------------
+
+BluefruitUSB.name=Adafruit Bluefruit LE Friend
+
+BluefruitUSB.build.mcu=cortex-m0
+BluefruitUSB.build.f_cpu=16000000
+BluefruitUSB.build.board=Bluefruit_USB
+BluefruitUSB.build.core=nRF51
+BluefruitUSB.build.variant=Bluefruit_USB
+BluefruitUSB.build.device_definitions= -DTARGET_BLE_USB_FRIEND
+BluefruitUSB.build.ldscript={build.variant.path}/linker_scripts/gcc/memory-16K-no-sd.ld
+
+BluefruitUSB.build.nrf_sdk={runtime.platform.path}/cores/nRF51/nRF51-SDK-9
+BluefruitUSB.build.arduino={runtime.platform.path}/cores/nRF51/arduino
+BluefruitUSB.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
+BluefruitUSB.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
+
+BluefruitUSB.upload.tool=nrfjprog
+BluefruitUSB.upload.protocol=
+BluefruitUSB.upload.maximum_size=131072
+BluefruitUSB.upload.maximum_data_size=32768
+
+#-----------------------------------------------------------------------------------------------------------
+
+
+Waveshare.name=Waveshare
+
+Waveshare.build.mcu=cortex-m0
+Waveshare.build.f_cpu=16000000
+Waveshare.build.board=Waveshare
+Waveshare.build.core=nRF51
+Waveshare.build.variant=Waveshare
+Waveshare.build.device_definitions= -DTARGET_WAVESHARE
+Waveshare.build.ldscript={build.variant.path}/linker_scripts/gcc/memory-32K-no-sd.ld
+
+Waveshare.build.nrf_sdk={runtime.platform.path}/cores/nRF51/nRF51-SDK-9
+Waveshare.build.arduino={runtime.platform.path}/cores/nRF51/arduino
+Waveshare.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
+Waveshare.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
+
+Waveshare.upload.tool=nrfjprog
+Waveshare.upload.protocol=
+Waveshare.upload.maximum_size=131072
+Waveshare.upload.maximum_data_size=32768
+
+#-----------------------------------------------------------------------------------------------------------
+
+
+BLE_Nano.name=RedBear BLE Nano 32K
+
+BLE_Nano.build.mcu=cortex-m0
+BLE_Nano.build.f_cpu=16000000
+BLE_Nano.build.board=BLE_Nano_32K
+BLE_Nano.build.core=nRF51
+BLE_Nano.build.variant=BLE_Nano_32K
+BLE_Nano.build.device_definitions= -DTARGET_RBLAB_BLENANO
+BLE_Nano.build.ldscript={build.variant.path}/linker_scripts/gcc/memory-32K-no-sd.ld
+
+BLE_Nano.build.nrf_sdk={runtime.platform.path}/cores/nRF51/nRF51-SDK-9
+BLE_Nano.build.arduino={runtime.platform.path}/cores/nRF51/arduino
+BLE_Nano.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
+BLE_Nano.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
+
+BLE_Nano.upload.tool=nrfjprog
+BLE_Nano.upload.protocol=
+BLE_Nano.upload.maximum_size=131072
+BLE_Nano.upload.maximum_data_size=32768
+
+#-----------------------------------------------------------------------------------------------------------
+
+

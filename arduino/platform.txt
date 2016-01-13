@@ -1,0 +1,43 @@
+
+name=nRF51 boards
+
+compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
+compiler.S.cmd=arm-none-eabi-gcc
+compiler.S.flags= -mthumb -c -x assembler-with-cpp -D__STACK_SIZE=8192 -D__HEAP_SIZE=4096
+compiler.c.cmd=arm-none-eabi-gcc
+compiler.c.flags= -mthumb -c -std=gnu99 -fno-common -Wno-pointer-sign -Wno-format -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-write-strings -Wno-old-style-declaration -Wall -Wextra -Wno-strict-aliasing -fno-exceptions -ffunction-sections -fdata-sections -fomit-frame-pointer -DNDEBUG -Os -DNRF51 -DTARGET_MCU_NRF51822 {build.device_definitions}
+compiler.cpp.cmd=arm-none-eabi-g++
+compiler.cpp.flags= -mthumb -c -std=gnu++98 -fno-rtti -fno-common -Wno-format -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-variable -Wno-write-strings -Wall -Wextra -fno-exceptions -ffunction-sections -fdata-sections -fomit-frame-pointer -DNDEBUG -Os -DNRF51 -DTARGET_MCU_NRF51822 {build.device_definitions} {build.includes}
+compiler.link.cmd=arm-none-eabi-g++
+compiler.link.flags= -mthumb --specs=nano.specs "-Wl,-Map,{build.path}/{build.project_name}.map"
+compiler.ar.cmd=arm-none-eabi-ar
+compiler.ar.flags=rcs
+compiler.objcopy.cmd=arm-none-eabi-objcopy
+compiler.elf2hex.cmd=arm-none-eabi-objcopy
+compiler.elf2hex.flags=-O ihex
+compiler.size.cmd=arm-none-eabi-size
+
+recipe.S.o.pattern=   "{compiler.path}{compiler.c.cmd}"    -mcpu={build.mcu} {compiler.S.flags} "{source_file}" -o "{object_file}"
+recipe.c.o.pattern=   "{compiler.path}{compiler.c.cmd}"    -mcpu={build.mcu} {compiler.c.flags}   -DF_CPU={build.f_cpu} -D{software}={runtime.ide.version} {includes} {build.includes} "{source_file}" -o "{object_file}"
+recipe.cpp.o.pattern= "{compiler.path}{compiler.cpp.cmd}"  -mcpu={build.mcu} {compiler.cpp.flags} -DF_CPU={build.f_cpu} -D{software}={runtime.ide.version} {includes}                  "{source_file}" -o "{object_file}"
+recipe.c.combine.pattern=  "{compiler.path}{compiler.link.cmd}" -mcpu={build.mcu} {compiler.link.flags} -L{build.nrf_sdk} "-L{build.path}" "-T{build.ldscript}" -o "{build.path}/{build.project_name}.elf"  -Wl,--start-group "{build.path}/core/nRF51-SDK-9/gcc_startup_nrf51.S.o" "{build.path}/core/nRF51-SDK-9/system_nrf51.c.o" "{build.path}/core/nRF51-SDK-9/syscalls.c.o" "{build.path}/core/arduino/syscalls.c.o" "{build.path}/{archive_file}" {object_files} -Wl,--end-group
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{archive_file_path}" "{object_file}"
+recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
+
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
+recipe.size.regex=^(?:\.text|\.ARM.exidx|\.relocate)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.relocate|\.bss)\s+([0-9]+).*
+
+recipe.hooks.prebuild.0.pattern=
+recipe.hooks.postbuild.0.pattern=
+
+tools.nrfjprog.upload.pattern=bash -c "bash {runtime.platform.path}/nrfjprog.sh --reset && bash {runtime.platform.path}/nrfjprog.sh --flash {build.path}/{build.project_name}.hex"
+tools.nrfjprog.upload.params.verbose=
+tools.nrfjprog.upload.params.quiet=
+
+tools.srec_and_copy.upload.pattern=bash -c "srec_cat {runtime.platform.path}/cores/nRF51/nRF51-SDK-9/s130_softdevice.hex  -intel {build.path}/{build.project_name}.hex -intel -o up.hex -intel --line-length=44 && mv up.hex /media/${USER}/MBED-N"
+tools.srec_and_copy.upload.params.verbose=
+tools.srec_and_copy.upload.params.quiet=
+
+
+
