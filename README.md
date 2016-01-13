@@ -60,7 +60,7 @@ Onix is free of secret code by Nordic, RedBear or RFduino
 
 ## Building the example
  - if you've not already got it, download the right JLink for your platform from [Segger, here](https://www.segger.com/jlink-software.html)
- - in your Arduino 1.6.5 IDE, add the link to this package config json file: [http://object.network/package\_onix\_nrf51\_index.json](http://object.network/package\_onix\_nrf51\_index.json) in the preferences panel
+ - in your Arduino 1.6.7 IDE, add the link to this package config json file: [http://object.network/package\_onix\_nrf51\_index.json](http://object.network/package\_onix\_nrf51\_index.json) in the preferences panel
  - go to "Tools/Board/Boards Manager" and find Onix at the bottom; hit the 'Install' button
  - choose the Nordic, Adafruit, Waveshare or Nano board and check the correct serial port as usual
  - plug in the Nordic or wire the SWD flasher to the Adafruit, Waveshare or Nano (see below)
