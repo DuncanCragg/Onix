@@ -20,9 +20,9 @@
 #define RTS_PIN_NUMBER 8
 #define HWFC           true
 
-#define PIN_SPI_SS     15
-#define PIN_SPI_MOSI   16
-#define PIN_SPI_MISO   17
-#define PIN_SPI_SCK    18
+#define PIN_SPI_SS     30
+#define PIN_SPI_MOSI   24
+#define PIN_SPI_MISO   23
+#define PIN_SPI_SCK    25
 
 #endif
