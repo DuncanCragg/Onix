@@ -100,7 +100,7 @@ Simpler stuff:
  - power management for CR2032-powered tags and sensors
  - more demo examples: tag with accelerometer, wearable lights, RGB Strip, soil moisture sensor, TFT displays, etc
  - running on more devices: more Bluefruits, the Nordic DK and Beacon, [uCXpresso Lilypad](https://international.switch-science.com/catalog/2158/), Seeed devices, RFduino, BBC micro:bit
- - cheaper, more accesssible, more open ways of flashing: OpenOCD with J-Link or cheaper boards (FTDI, ST-Link/V2), FRDM-KL25Z, LPC-Link 2, Black Magic Probe, CMSIS-DAP, OTA/DFU, etc
+ - cheaper, more accesssible, more open ways of flashing: OpenOCD with J-Link or cheaper boards (FTDI - FT232H, ST-Link/V2), Waveshare ARM Debugger, FRDM-KL25Z, LPC-Link 2, Black Magic Probe, mbed interface, OTA/DFU, etc
  - running on Windows, building on Mac and Windows
 
 Harder stuff:
