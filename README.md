@@ -1,6 +1,9 @@
 # Onix
 Open Source Arduino IDE and library support for nRF51822-based devices.
 
+<a href=""><img title="Arduino" width="15%" src="http://object.network/arduino-logo.svg" /></a>
+<a href=""><img title="nRF51822" width="15%" src="http://object.network/nrf51822-logo.png" /></a>
+
 ## What it gives you now
  - build your sketches for nRF51 in the Arduino IDE using familiar APIs
  - get all your nRF51 ROM and RAM back - because it has no bloated or proprietary code or BLE stack
