@@ -39,7 +39,7 @@ tools.srec_and_copy.upload.pattern=bash -c "srec_cat {runtime.platform.path}/cor
 tools.srec_and_copy.upload.params.verbose=
 tools.srec_and_copy.upload.params.quiet=
 
-tools.openocd.upload.pattern=bash -c "cat {runtime.platform.path}/openocd-script.cfg | sed s:path-to-hex:{build.path}/{build.project_name}.hex: > tmp-script.cfg && {runtime.tools.openocd.path}/openocd -s {runtime.tools.openocd.path} -f {runtime.platform.path}/openocd-stlink.cfg -f ./tmp-script.cfg"
+tools.openocd.upload.pattern=bash -c "cat {runtime.platform.path}/openocd-script.cfg | sed s:path-to-hex:{build.path}/{build.project_name}.hex: > {build.path}/tmp-script.cfg && {runtime.tools.openocd.path}/openocd -s {runtime.tools.openocd.path} -f {runtime.platform.path}/openocd-stlink.cfg -f {build.path}/tmp-script.cfg"
 tools.openocd.upload.params.verbose=
 tools.openocd.upload.params.quiet=
 
