@@ -72,8 +72,8 @@
                         "host": "x86_64-pc-linux-gnu",
                         "url": "http://object.network/openocd-0.9.0-linux64.tar.gz",
                         "archiveFileName": "openocd-0.9.0-linux64.tar.gz",
-                        "checksum": "SHA-256:6439ed97a391051b92740278af92e3d19a659cab0e2842bc2ebd0ebf39c3ca2c",
-                        "size": "3567970"
+                        "checksum": "SHA-256:8397c395e82891e94bdfc3273bf77b90f9aa594b38948af8bf2c79a3aeabab55",
+                        "size": "3567980"
                     }, {
                         "host": "i686-pc-linux-gnu",
                         "url": "http://object.network/openocd-0.9.0-linux32.tar.gz",
@@ -84,8 +84,8 @@
                         "host": "x86_64-apple-darwin",
                         "url": "http://object.network/openocd-0.9.0-mac.tar.gz",
                         "archiveFileName": "openocd-0.9.0-mac.tar.gz",
-                        "checksum": "SHA-256:.9.093dc422b894dc09384759b270b2ece5facb59c2",
-                        "size": ""
+                        "checksum": "SHA-256:5b46d078cb444fad03676f397509aed4f4c71a3c3a7fe21de55f8878185ec0dc",
+                        "size": "999717"
                     }, {
                         "host": "i686-mingw32",
                         "archiveFileName": "openocd-0.9.0-windows.tar.gz",
