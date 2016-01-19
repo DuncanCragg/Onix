@@ -60,7 +60,7 @@ Waveshare.build.arduino={runtime.platform.path}/cores/nRF51/arduino
 Waveshare.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
 Waveshare.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
 
-Waveshare.upload.tool=nrfjprog
+Waveshare.upload.tool=openocd
 Waveshare.upload.protocol=
 Waveshare.upload.maximum_size=131072
 Waveshare.upload.maximum_data_size=32768

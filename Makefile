@@ -10,17 +10,20 @@ arduino-zip:
 	mkdir -p 1.0.0/cores/nRF51/onix/libs/onix/time
 	mkdir -p 1.0.0/cores/nRF51/onix/libs/onix/peripherals/gpio
 	mkdir -p 1.0.0/cores/nRF51/onix/libs/onix/peripherals/serial
+	mkdir -p 1.0.0/cores/nRF51/arduino
 	mkdir -p 1.0.0/libraries/Onix/src
 	mkdir -p 1.0.0/libraries/Onix/examples/Blinky
 	mkdir -p 1.0.0/variants/Nordic_USB/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Bluefruit_USB/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Waveshare/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/BLE_Nano_32K/linker_scripts/gcc
-	cp -a arduino                                               1.0.0/cores/nRF51
+	cp -a arduino/*.*                                           1.0.0/cores/nRF51/arduino
 	rm 1.0.0/cores/nRF51/arduino/package_onix_nrf51_index.json
 	mv 1.0.0/cores/nRF51/arduino/boards.txt                     1.0.0
 	mv 1.0.0/cores/nRF51/arduino/platform.txt                   1.0.0
 	cp platforms/nrfjprog.sh                                    1.0.0
+	cp platforms/openocd-script.cfg                             1.0.0
+	cp platforms/openocd-stlink.cfg                             1.0.0
 	cp libs/onix/include/nRF51/compiler_abstraction.h           1.0.0/cores/nRF51/nRF51-SDK-9
 	cp libs/onix/include/nRF51/nrf51_bitfields.h                1.0.0/cores/nRF51/nRF51-SDK-9
 	cp libs/onix/include/nRF51/nrf51_deprecated.h               1.0.0/cores/nRF51/nRF51-SDK-9
