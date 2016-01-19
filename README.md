@@ -61,11 +61,18 @@ Onix is free of secret code by Nordic, RedBear or RFduino
  - Arduino IDE runs on Linux and Mac (Windows untested)
  - this GitHub source builds using 'make' on Linux
 
+----------------------------------------------
+
+## What you need
+ - Arduino IDE 1.6.7
+ - one of those boards
+ - a J-Link (Adafruit/Nano) or ST-Link/V2 mini (Waveshare) to SWD flash your board
+
 ## Building the example
- - if you've not already got it, download the right JLink for your platform from [Segger, here](https://www.segger.com/jlink-software.html)
+ - for Nordic, Adafruit and Nano, if you've not already got it, download the right JLink for your platform from [Segger, here](https://www.segger.com/jlink-software.html)
  - in your Arduino 1.6.7 IDE, add the link to this package config json file: [http://object.network/package\_onix\_nrf51\_index.json](http://object.network/package\_onix\_nrf51\_index.json) in the preferences panel
  - go to "Tools/Board/Boards Manager" and find Onix at the bottom; hit the 'Install' button
- - choose the Nordic, Adafruit, Waveshare or Nano board and check the correct serial port as usual
+ - choose the Nordic, Adafruit, Waveshare or Nano board and check the correct serial port as usual (if you have that plugged/wired in)
  - plug in the Nordic or wire the SWD flasher to the Adafruit, Waveshare or Nano (see below)
  - open Examples/Onix/Blinky and build it
 
@@ -74,11 +81,10 @@ Onix is free of secret code by Nordic, RedBear or RFduino
  - when you watch in the serial line, you'll see ticking messages; typing 'o' or 'i' changes the blink rate
 
 ## Wiring J-Link/SWD to Adafruit, Waveshare or Nano
- - here's what these three look like wired to a Segger J-Link (touch to expand image):
- - &nbsp; &nbsp; <a href="docs/adafruit-swd.jpg"><img src="docs/adafruit-swd.jpg" alt="Adafruit SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/waveshare-swd.jpg"><img src="docs/waveshare-swd.jpg" alt="Waveshare SWD" width="20%" /></a>&nbsp; &nbsp; <a href="docs/rbl-nano-swd.jpg"><img src="docs/rbl-nano-swd.jpg" alt="RedBear Nano SWD" width="20%" /></a> 
+ - here's what these three look like wired to a Segger J-Link or ST-Link (touch to expand image):
+ - &nbsp; &nbsp; <a href="docs/adafruit-swd.jpg"><img src="docs/adafruit-swd.jpg" alt="Adafruit SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/waveshare-stlink.jpg"><img src="docs/waveshare-stlink.jpg" alt="Waveshare SWD" width="20%" /></a>&nbsp; &nbsp; <a href="docs/rbl-nano-swd.jpg"><img src="docs/rbl-nano-swd.jpg" alt="RedBear Nano SWD" width="20%" /></a>
 
  - you may need an adaptor between fat-plug and teensy-plug for the Adafruit - [something like this](https://www.google.co.uk/search?q=Olimex+ARM-JTAG-20-10+10+Pin+JTAG+Adaptor)
- - the Waveshare may work with a straight J-Link cable - I haven't tested it - but otherwise this hand-crafted one is fine
  - you do need to do a bit of soldering for the Nano, because the USB disk approach doesn't seem to work without a softdevice:
 
  [J-Link pins](https://segger.com/interface-description.html) | [RedBear Nano pins](http://redbearlab.com/blenano/) | wire colour in photo
@@ -89,7 +95,7 @@ Onix is free of secret code by Nordic, RedBear or RFduino
  SWDIO (7)   | SWDIO     | yellow
  VTref (1)   | VDD (3V3) | blue
 
- - you need to run JLinkExe and type 'power on perm' to power the Waveshare or Nano from pin 19
+ - for J-Link, you'll need to run JLinkExe and type 'power on perm' to power the Waveshare or Nano from pin 19
 
 ## Building the Arduino package on Linux
  - run <code>make</code>, which builds <code>Onix-nRF51.zip</code> and <code>package\_onix\_nrf51\_index.json</code>
