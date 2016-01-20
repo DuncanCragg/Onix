@@ -74,9 +74,9 @@ Open flashing (OpenOCD) and cheap, commodity flasher devices. Doesn't use Segger
  - in your Arduino 1.6.7 IDE, add the link to this package config json file: [http://object.network/package\_onix\_nrf51\_index.json](http://object.network/package\_onix\_nrf51\_index.json) in the preferences panel
  - go to "Tools/Board/Boards Manager" and find Onix at the bottom; hit the 'Install' button
  - choose a Bluefruit, Waveshare or Nano board
- - check the correct serial port as usual (if you have that plugged/wired in - see below)
  - wire the ST-Link/V2 flasher to your Bluefruit, Waveshare or Nano (see below)
- - open Examples/Onix/Blinky and build it
+ - check the correct serial port as usual (if you have that plugged/wired in - see below)
+ - open Examples/Onix/Blinky and upload it
 
 ## Running it
  - it blinks! if it's a Bluefruit, it blinks in different colours!
@@ -85,23 +85,13 @@ Open flashing (OpenOCD) and cheap, commodity flasher devices. Doesn't use Segger
 ## Wiring ST-Link/SWD
  - here's what the boards each look like when wired to an ST-Link/V2 mini (touch to expand image):
  - &nbsp; &nbsp; <a href="docs/bluefruit-flora-stlink.jpg"><img src="docs/bluefruit-flora-stlink.jpg" title="Bluefruit Flora SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/adafruit-stlink.jpg"><img src="docs/adafruit-stlink.jpg" title="Bluefruit Friend SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/waveshare-stlink.jpg"><img src="docs/waveshare-stlink.jpg" title="Waveshare SWD" width="20%" /></a>&nbsp; &nbsp; <a href="docs/rbl-nano-stlink.jpg"><img src="docs/rbl-nano-stlink.jpg" title="RedBear Nano SWD" width="20%" /></a>
-
+ - all boards apart from the Bluefruit Friend take the 3.3V supply from the ST-Link; the Nano to the 'VDD' pin
  - you need an adaptor between SWD fat-plug and SWD teensy-plug for the Bluefruit Friend - [something like this](https://www.google.co.uk/search?q=Olimex+ARM-JTAG-20-10+10+Pin+JTAG+Adaptor)
- - wiring for the Nano:
-
- ST-Link pins | [RedBear Nano pins](http://redbearlab.com/blenano/) | wire colour in photo
- ------------:|:----------|:--------
- GND          | GND       | black
- 3.3V VCC     | VDD       | yellow
- SWCLK        | SWCLK     | blue
- SWDIO        | SWDIO     | red
 
 ## Connecting Serial
-
- - the Bluefruit Friend plugs in and the Waveshare has a motherboard you can use
+ - the Bluefruit Friend plugs in for serial, and the Waveshare has the motherboard you can use
  - the Bluefruit Flora and Nano can be wired to a commodity serial-to-USB device like this (touch to expand image):
- - &nbsp; &nbsp; <a href="docs/bluefruit-flora-stlink-serial.jpg"><img src="docs/bluefruit-flora-stlink-serial.jpg" title="Bluefruit Flora SWD and Serial" width="20%" /></a>
- - &nbsp; &nbsp; <a href="docs/rbl-nano-stlink-serial.jpg"><img src="docs/rbl-nano-stlink-serial.jpg" title="RedBear Nano SWD and Serial" width="20%" /></a>
+ - &nbsp; &nbsp; <a href="docs/bluefruit-flora-stlink-serial.jpg"><img src="docs/bluefruit-flora-stlink-serial.jpg" title="Bluefruit Flora SWD and Serial" width="20%" /></a> &nbsp; &nbsp; <a href="docs/rbl-nano-stlink-serial.jpg"><img src="docs/rbl-nano-stlink-serial.jpg" title="RedBear Nano SWD and Serial" width="20%" /></a>
 
 
 ## Building the Arduino package on Linux
@@ -116,7 +106,7 @@ Simpler stuff:
  - power management for CR2032-powered tags and sensors
  - more demo examples: tag with accelerometer, wearable lights, RGB Strip, soil moisture sensor, TFT displays, etc
  - running on more devices: more Bluefruits, the Nordic Beacon, [uCXpresso Lilypad](https://international.switch-science.com/catalog/2158/), RFduino, Seeed devices, BBC micro:bit
- - even more Open flashing, with Black Magic Probe, IBDAP, FTDI, etc
+ - even more Open flashing, with Black Magic Probe, FTDI, IBDAP, etc
  - OTA/DFU upgrading of Onix and/or your software over radio or serial
  - running on Windows, building on Mac and Windows
 
