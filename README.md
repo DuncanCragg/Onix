@@ -19,9 +19,9 @@ Open Source Arduino IDE and library support for nRF51822-based devices.
 <table>
 <tr>
 <td>
-Nordic nRF51 Dongle
+
 <br/><br/>
-<a href="https://www.nordicsemi.com/eng/Products/nRF51-Dongle"><img title="Nordic USB" width="45%" src="http://object.network/nRF51dongle.jpg" /></a>
+
 </td>
 <td>
 Adafruit Bluefruit LE Friend
@@ -57,6 +57,8 @@ Onix is free of secret code by Nordic, RedBear or RFduino
 
 .. although if you spot some, let me know and I'll remove or replace it :-)
 
+Open flashing (OpenOCD) and cheap, commodity flasher devices. Doesn't use Segger for flashing.
+
 ## Operating Systems
  - Arduino IDE runs on Linux and Mac (Windows untested)
  - this GitHub source builds using 'make' on Linux
@@ -65,37 +67,41 @@ Onix is free of secret code by Nordic, RedBear or RFduino
 
 ## What you need
  - Arduino IDE 1.6.7
- - one of those boards
- - a J-Link (Adafruit/Nano) or ST-Link/V2 mini (Waveshare) to SWD flash your board
+ - one of those boards above from [Adafruit](https://www.adafruit.com/products/2267), [Waveshare](http://www.waveshare.com/ble400.htm), or [your local supplier](https://proto-pic.co.uk/redbearlab-ble-nano-nrf51822/)
+ - an ST-Link/V2 mini to SWD flash your board - from [Adafruit](https://www.adafruit.com/products/2548), [Waveshare](http://www.waveshare.com/ST-LINK-V2-mini-STM32.htm), or [your local supplier](http://hobbycomponents.com/st-micro-electronics/444-stm8-stm32-emulator-and-programmer).
 
 ## Building the example
- - for Nordic, Adafruit and Nano, if you've not already got it, download the right JLink for your platform from [Segger, here](https://www.segger.com/jlink-software.html)
  - in your Arduino 1.6.7 IDE, add the link to this package config json file: [http://object.network/package\_onix\_nrf51\_index.json](http://object.network/package\_onix\_nrf51\_index.json) in the preferences panel
  - go to "Tools/Board/Boards Manager" and find Onix at the bottom; hit the 'Install' button
- - choose the Nordic, Adafruit, Waveshare or Nano board and check the correct serial port as usual (if you have that plugged/wired in)
- - plug in the Nordic or wire the SWD flasher to the Adafruit, Waveshare or Nano (see below)
+ - choose the Adafruit, Waveshare or Nano board
+ - check the correct serial port as usual (if you have that plugged/wired in - see below)
+ - wire the ST-Link/V2 flasher to the Adafruit, Waveshare or Nano (see below)
  - open Examples/Onix/Blinky and build it
 
 ## Running it
- - it blinks! if it's a Nordic or Adafruit plug, it blinks in several colours!
+ - it blinks! if it's an Adafruit plug, it blinks in different colours!
  - when you watch in the serial line, you'll see ticking messages; typing 'o' or 'i' changes the blink rate
 
-## Wiring J-Link/SWD to Adafruit, Waveshare or Nano
- - here's what these three look like wired to a Segger J-Link or ST-Link (touch to expand image):
- - &nbsp; &nbsp; <a href="docs/adafruit-swd.jpg"><img src="docs/adafruit-swd.jpg" alt="Adafruit SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/waveshare-stlink.jpg"><img src="docs/waveshare-stlink.jpg" alt="Waveshare SWD" width="20%" /></a>&nbsp; &nbsp; <a href="docs/rbl-nano-swd.jpg"><img src="docs/rbl-nano-swd.jpg" alt="RedBear Nano SWD" width="20%" /></a>
+## Wiring ST-Link/SWD
+ - here's what these three look like wired to an ST-Link/V2 mini (touch to expand image):
+ - &nbsp; &nbsp; <a href="docs/adafruit-stlink.jpg"><img src="docs/adafruit-stlink.jpg" alt="Adafruit SWD" width="20%" /></a> &nbsp; &nbsp; <a href="docs/waveshare-stlink.jpg"><img src="docs/waveshare-stlink.jpg" alt="Waveshare SWD" width="20%" /></a>&nbsp; &nbsp; <a href="docs/rbl-nano-stlink.jpg"><img src="docs/rbl-nano-stlink.jpg" alt="RedBear Nano SWD" width="20%" /></a>
 
  - you may need an adaptor between fat-plug and teensy-plug for the Adafruit - [something like this](https://www.google.co.uk/search?q=Olimex+ARM-JTAG-20-10+10+Pin+JTAG+Adaptor)
- - you do need to do a bit of soldering for the Nano, because the USB disk approach doesn't seem to work without a softdevice:
+ - wiring for the Nano:
 
- [J-Link pins](https://segger.com/interface-description.html) | [RedBear Nano pins](http://redbearlab.com/blenano/) | wire colour in photo
- -----------:|:----------|:--------
- GND (8)     | GND       | black
- 5V pwr (19) | VIN       | red
- SWCLK (9)   | SWCLK     | orange
- SWDIO (7)   | SWDIO     | yellow
- VTref (1)   | VDD (3V3) | blue
+ ST-Link pins | [RedBear Nano pins](http://redbearlab.com/blenano/) | wire colour in photo
+ ------------:|:----------|:--------
+ GND          | GND       | black
+ 3.3V pwr     | VCC       | yellow
+ SWCLK        | SWCLK     | blue
+ SWDIO        | SWDIO     | red
 
- - for J-Link, you'll need to run JLinkExe and type 'power on perm' to power the Waveshare or Nano from pin 19
+## Connecting Serial
+
+ - the Bluefruit plugs in and the Waveshare has a motherboard you can use
+ - the Nano can be wired to a commodity serial-to-USB device like this (touch to expand image):
+ - <a href="docs/rbl-nano-stlink-serial.jpg"><img src="docs/rbl-nano-stlink-serial.jpg" alt="RedBear Nano SWD and Serial" width="20%" /></a>
+
 
 ## Building the Arduino package on Linux
  - run <code>make</code>, which builds <code>Onix-nRF51.zip</code> and <code>package\_onix\_nrf51\_index.json</code>
@@ -108,8 +114,8 @@ Simpler stuff:
  - better basic Arduino API - Serial, buttons; test/port common libraries (Adafruit) using SPI/I2C, etc
  - power management for CR2032-powered tags and sensors
  - more demo examples: tag with accelerometer, wearable lights, RGB Strip, soil moisture sensor, TFT displays, etc
- - running on more devices: more Bluefruits, the Nordic DK and Beacon, [uCXpresso Lilypad](https://international.switch-science.com/catalog/2158/), Seeed devices, RFduino, BBC micro:bit
- - cheaper, more accesssible, more open ways of flashing: OpenOCD with J-Link or cheaper boards (ST-Link/V2, FTDI - FT232H, IBDAP), Black Magic Probe on cheap STM32 boards
+ - running on more devices: more Bluefruits, the Nordic Beacon, [uCXpresso Lilypad](https://international.switch-science.com/catalog/2158/), RFduino, Seeed devices, BBC micro:bit
+ - even more Open flashing, with Black Magic Probe, IBDAP, FTDI, etc
  - OTA/DFU upgrading of Onix and/or your software over radio or serial
  - running on Windows, building on Mac and Windows
 

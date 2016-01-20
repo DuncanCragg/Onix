@@ -31,17 +31,8 @@ recipe.size.regex.data=^(?:\.relocate|\.bss)\s+([0-9]+).*
 recipe.hooks.prebuild.0.pattern=
 recipe.hooks.postbuild.0.pattern=
 
-tools.nrfjprog.upload.pattern=bash -c "bash {runtime.platform.path}/nrfjprog.sh --reset && bash {runtime.platform.path}/nrfjprog.sh --flash {build.path}/{build.project_name}.hex"
-tools.nrfjprog.upload.params.verbose=
-tools.nrfjprog.upload.params.quiet=
-
-tools.srec_and_copy.upload.pattern=bash -c "srec_cat {runtime.platform.path}/cores/nRF51/nRF51-SDK-9/s130_softdevice.hex  -intel {build.path}/{build.project_name}.hex -intel -o up.hex -intel --line-length=44 && mv up.hex /media/${USER}/MBED-N"
-tools.srec_and_copy.upload.params.verbose=
-tools.srec_and_copy.upload.params.quiet=
-
 tools.openocd.upload.pattern=bash -c "cat {runtime.platform.path}/openocd-script.cfg | sed s:path-to-hex:{build.path}/{build.project_name}.hex: > {build.path}/tmp-script.cfg && {runtime.tools.openocd.path}/openocd -s {runtime.tools.openocd.path} -f {runtime.platform.path}/openocd-stlink.cfg -f {build.path}/tmp-script.cfg"
 tools.openocd.upload.params.verbose=
 tools.openocd.upload.params.quiet=
-
 
 

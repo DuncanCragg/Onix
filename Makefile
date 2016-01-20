@@ -13,7 +13,6 @@ arduino-zip:
 	mkdir -p 1.0.0/cores/nRF51/arduino
 	mkdir -p 1.0.0/libraries/Onix/src
 	mkdir -p 1.0.0/libraries/Onix/examples/Blinky
-	mkdir -p 1.0.0/variants/Nordic_USB/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Bluefruit_USB/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Waveshare/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/BLE_Nano_32K/linker_scripts/gcc
@@ -21,7 +20,6 @@ arduino-zip:
 	rm 1.0.0/cores/nRF51/arduino/package_onix_nrf51_index.json
 	mv 1.0.0/cores/nRF51/arduino/boards.txt                     1.0.0
 	mv 1.0.0/cores/nRF51/arduino/platform.txt                   1.0.0
-	cp platforms/nrfjprog.sh                                    1.0.0
 	cp platforms/openocd-script.cfg                             1.0.0
 	cp platforms/openocd-stlink.cfg                             1.0.0
 	cp libs/onix/include/nRF51/compiler_abstraction.h           1.0.0/cores/nRF51/nRF51-SDK-9
@@ -38,8 +36,6 @@ arduino-zip:
 	cp platforms/syscalls.c                                     1.0.0/cores/nRF51/nRF51-SDK-9
 	cp platforms/gcc_nrf51_common.ld                            1.0.0/cores/nRF51/nRF51-SDK-9
 	cp platforms/variant.h                                      1.0.0/cores/nRF51/nRF51-SDK-9
-	cp platforms/variant_nord_usb.h                             1.0.0/variants/Nordic_USB/
-	cp platforms/memory-32K-no-sd.ld                            1.0.0/variants/Nordic_USB/linker_scripts/gcc
 	cp platforms/variant_ble_usb_friend.h                       1.0.0/variants/Bluefruit_USB/
 	cp platforms/memory-16K-no-sd.ld                            1.0.0/variants/Bluefruit_USB/linker_scripts/gcc
 	cp platforms/variant_waveshare.h                            1.0.0/variants/Waveshare/
