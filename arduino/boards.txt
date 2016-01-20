@@ -1,5 +1,27 @@
 #-----------------------------------------------------------------------------------------------------------
 
+BluefruitFlora.name=Adafruit Bluefruit Flora
+
+BluefruitFlora.build.mcu=cortex-m0
+BluefruitFlora.build.f_cpu=16000000
+BluefruitFlora.build.board=Bluefruit_Flora
+BluefruitFlora.build.core=nRF51
+BluefruitFlora.build.variant=Bluefruit_Flora
+BluefruitFlora.build.device_definitions= -DTARGET_BLUEFRUIT_FLORA
+BluefruitFlora.build.ldscript={build.variant.path}/linker_scripts/gcc/memory-32K-no-sd.ld
+
+BluefruitFlora.build.nrf_sdk={runtime.platform.path}/cores/nRF51/nRF51-SDK-9
+BluefruitFlora.build.arduino={runtime.platform.path}/cores/nRF51/arduino
+BluefruitFlora.build.onix_inc={runtime.platform.path}/cores/nRF51/onix/libs/onix/include/
+BluefruitFlora.build.includes=-I{build.nrf_sdk} -I{build.arduino} -I{build.onix_inc}
+
+BluefruitFlora.upload.tool=openocd
+BluefruitFlora.upload.protocol=
+BluefruitFlora.upload.maximum_size=131072
+BluefruitFlora.upload.maximum_data_size=32768
+
+#-----------------------------------------------------------------------------------------------------------
+
 BluefruitUSB.name=Adafruit Bluefruit LE Friend
 
 BluefruitUSB.build.mcu=cortex-m0

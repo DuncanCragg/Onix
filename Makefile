@@ -13,6 +13,7 @@ arduino-zip:
 	mkdir -p 1.0.0/cores/nRF51/arduino
 	mkdir -p 1.0.0/libraries/Onix/src
 	mkdir -p 1.0.0/libraries/Onix/examples/Blinky
+	mkdir -p 1.0.0/variants/Bluefruit_Flora/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Bluefruit_USB/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/Waveshare/linker_scripts/gcc
 	mkdir -p 1.0.0/variants/BLE_Nano_32K/linker_scripts/gcc
@@ -36,6 +37,8 @@ arduino-zip:
 	cp platforms/syscalls.c                                     1.0.0/cores/nRF51/nRF51-SDK-9
 	cp platforms/gcc_nrf51_common.ld                            1.0.0/cores/nRF51/nRF51-SDK-9
 	cp platforms/variant.h                                      1.0.0/cores/nRF51/nRF51-SDK-9
+	cp platforms/variant_bluefruit_flora.h                      1.0.0/variants/Bluefruit_Flora/
+	cp platforms/memory-32K-no-sd.ld                            1.0.0/variants/Bluefruit_Flora/linker_scripts/gcc
 	cp platforms/variant_ble_usb_friend.h                       1.0.0/variants/Bluefruit_USB/
 	cp platforms/memory-16K-no-sd.ld                            1.0.0/variants/Bluefruit_USB/linker_scripts/gcc
 	cp platforms/variant_waveshare.h                            1.0.0/variants/Waveshare/

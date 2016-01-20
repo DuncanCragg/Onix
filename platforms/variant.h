@@ -29,6 +29,10 @@
 
   #include <variant_ble_usb_friend.h>
 
+#elif defined(TARGET_BLUEFRUIT_FLORA)
+
+  #include <variant_bluefruit_flora.h>
+
 #elif defined(TARGET_ARCH_BLE)
 
   #include <variant_arch_ble.h>
