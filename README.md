@@ -112,16 +112,15 @@ Simpler stuff:
 
 Harder stuff:
 
- - raw radio channel API
- - Bluetooth LE advertise/scan-based radio, with frag/defrag, ID beacons, RSSI in API
+ - Bluetooth LE advertise/scan-based radio, with channel-hopping, frag/defrag, ID beacons, RSSI in API
  - property protocol, objects, notification, proxy-cacheing mesh, with tests
- - IPv6 gateway with attached ENC28J60 ethernet or ESP8266 WiFi
  - network security: encryption, identity
 
-Non-nRF51 platforms:
+Talking to non-nRF51 platforms:
 
- - BLE radio API for Android and other Linux with in-built/attached BLE, such as Ubuntu or Pi; other SoC/SoMs
+ - BLE radio API for Android (via C/NDK) and other Linux with in-built/attached BLE, such as Ubuntu, Pi or other SoC/SoMs (via Bluez)
  - IPv6 gateways: on these Android, Ubuntu or Pies with own BLE, or USB serial to nRF51 device
+ - IPv6 gateway on nRF51 with attached ENC28J60 ethernet or ESP8266 WiFi
 
 ----
 
