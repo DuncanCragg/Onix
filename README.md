@@ -1,6 +1,12 @@
 # Onix
 Open Source Arduino IDE and library support for nRF51822-based devices.
 
+---------------
+
+*Note: development of Onix is currently on pause while I gather a team of collaborators.. if that could be you, email me on onix@cilux.org!*
+
+---------------
+
 <a href=""><img title="Arduino" width="15%" src="http://object.network/arduino-logo.svg" /></a>
 <a href=""><img title="nRF51822" width="15%" src="http://object.network/nrf51822-logo.png" /></a>
 
@@ -112,9 +118,8 @@ Simpler stuff:
 
 Harder stuff:
 
- - Bluetooth LE advertise/scan-based radio, with channel-hopping, frag/defrag, ID beacons, RSSI in API
- - property protocol, objects, notification, proxy-cacheing mesh, with tests
- - network security: encryption, identity
+ - Bluetooth LE advertise/scan-based radio, multi-channel, frag/defrag, crypto, IDs, beacons, RSSI
+ - property protocol, objects, notification, proxy-cacheing mesh; with full test suite
 
 Talking to non-nRF51 platforms:
 
